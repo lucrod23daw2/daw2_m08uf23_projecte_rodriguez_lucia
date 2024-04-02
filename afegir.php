@@ -6,21 +6,21 @@
     ini_set('display_errors', 0);
     #Dades de la nova entrada
     #
-    if ($_GET['uid']){
-        $uid=$_GET['uid'];
-        $ou=$_GET['ou'];
-        $uidNumber=$_GET['uidNumber'];
-        $gidNumber=$_GET['gidNumber'];
-        $dir=$_GET['dir'];
-        $sh=$_GET['shell'];
-        $cn=$_GET['cn'];
-        $sn=$_GET['sn'];
-        $givenName=$_GET['givenName'];
-        $mobile=$_GET['mobile'];
-        $postalAdress=$_GET['postalAdress'];
-        $telf=$_GET['telf'];
-        $title=$_GET['title'];
-        $description=$_GET['description'];
+    if ($_POST['uid']){
+        $uid=$_POST['uid'];
+        $ou=$_POST['ou'];
+        $uidNumber=$_POST['uidNumber'];
+        $gidNumber=$_POST['gidNumber'];
+        $dir=$_POST['dir'];
+        $sh=$_POST['shell'];
+        $cn=$_POST['cn'];
+        $sn=$_POST['sn'];
+        $givenName=$_POST['givenName'];
+        $mobile=$_POST['mobile'];
+        $postalAdress=$_POST['postalAdress'];
+        $telf=$_POST['telf'];
+        $title=$_POST['title'];
+        $description=$_POST['description'];
         $objcl=array('inetOrgPerson','organizationalPerson','person','posixAccount','shadowAccount','top');
         #
         #Afegint la nova entrada
@@ -64,7 +64,7 @@ AFEGINT USUARIS A LA BASE DE DADES LDAP
 </head>
 <body>
 <h2>Formulari de creació d'usuaris</h2>
-<form action="http://zend-luroin.fjeclot.net/projecte/afegir.php" method="GET">
+<form action="http://zend-luroin.fjeclot.net/projecte/afegir.php" method="POST">
 UID: <input type="text" name="uid" required><br>
 Unitat organitzativa:
 <select name="ou" required>
