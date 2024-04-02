@@ -36,5 +36,6 @@ Usuari: <input type="text" name="usr"><br>
 <input type="submit"/>
 <input type="reset"/>
 </form>
+<a href="http://zend-luroin.fjeclot.net/projecte/menu.php">Torna al menú</a>
 </body>
 </html>
