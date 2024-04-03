@@ -22,7 +22,7 @@ CN: <input type="text" name="cn" required><br>
 SN: <input type="text" name="sn" required><br>
 Given name: <input type="text" name="givenName" required><br>
 Postal adress: <input type="text" name="postalAdress" required><br>
-Mobile: <input type="text" name="mobile"><br>
+Mobile: <input type="text" name="mobile" required><br>
 Telefon: <input type="text" name="telf" required><br>
 Title: <input type="text" name="title" required><br>
 Description: <input type="text" name="description" required><br>
