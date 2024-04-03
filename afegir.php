@@ -16,7 +16,7 @@ Unitat organitzativa:
 </select><br>
 UID Number: <input type="text" name="uidNumber" required><br>
 GID Number: <input type="text" name="gidNumber" required><br>
-Direcrori personal: <input type="text" name="dir" required><br>
+Directori personal: <input type="text" name="dir" required><br>
 Shell: <input type="text" name="shell" required><br>
 CN: <input type="text" name="cn" required><br>
 SN: <input type="text" name="sn" required><br>
@@ -71,7 +71,7 @@ Description: <input type="text" name="description" required><br>
         $ldap->bind();
         $nova_entrada = [];
         Attribute::setAttribute($nova_entrada, 'objectClass', $objcl);
-        Attribute::setAttribute($nova_entrada, 'uid', $ou);
+        Attribute::setAttribute($nova_entrada, 'uid', $uid);
         Attribute::setAttribute($nova_entrada, 'uidNumber', $uidNumber);
         Attribute::setAttribute($nova_entrada, 'gidNumber', $gidNumber);
         Attribute::setAttribute($nova_entrada, 'homeDirectory', $dir);

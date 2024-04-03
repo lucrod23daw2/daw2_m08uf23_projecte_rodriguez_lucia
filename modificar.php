@@ -7,26 +7,27 @@ MODIFICANT DADES D'USUARIS A LA BASE DE DADES LDAP
 <body>
 <h2>Formulari de modificació d'usuaris</h2>
 <form action="http://zend-luroin.fjeclot.net/projecte/modificar.php" method="POST">
-UID: <input type="text" name="uid" required><br>
 Unitat organitzativa:
 <select name="ou" required>
   <option value="administradors">Administradors</option>
   <option value="desenvolupadors">Desenvolupadors</option>
   <option value="usuaris">Usuaris</option>
 </select><br><br>
+UID: <input type="text" name="uid" required><br>
 <label><b>Marca el camp que vols modificar i introdueix el nou valor:</b></label><br>
-<input type="radio" name="atribut[]" value="uidNumber">UID Number: <input type="text" name="uidNumber"><br>
-<input type="radio" name="atribut[]" value="gidNumber">GID Number: <input type="text" name="gidNumber"><br>
-<input type="radio" name="atribut[]" value="dir">Direcrori personal: <input type="text" name="dir"><br>
-<input type="radio" name="atribut[]" value="shell">Shell: <input type="text" name="shell"><br>
-<input type="radio" name="atribut[]" value="cn">CN: <input type="text" name="cn"><br>
-<input type="radio" name="atribut[]" value="sn">SN: <input type="text" name="sn"><br>
-<input type="radio" name="atribut[]" value="givenName">Given name: <input type="text" name="givenName"><br>
-<input type="radio" name="atribut[]" value="postalAdress">Postal adress: <input type="text" name="postalAdress"><br>
-<input type="radio" name="atribut[]" value="mobile">Mobile: <input type="text" name="mobile"><br>
-<input type="radio" name="atribut[]" value="telf">Telefon: <input type="text" name="telf"><br>
-<input type="radio" name="atribut[]" value="title">Title: <input type="text" name="title"><br>
-<input type="radio" name="atribut[]" value="description">Description: <input type="text" name="description"><br>
+<input type="radio" name="atribut" value="uidNumber">UID Number<br>
+<input type="radio" name="atribut" value="gidNumber">GID Number<br>
+<input type="radio" name="atribut" value="dir">Directori personal<br>
+<input type="radio" name="atribut" value="shell">Shell<br>
+<input type="radio" name="atribut" value="cn">CN<br>
+<input type="radio" name="atribut" value="sn">SN<br>
+<input type="radio" name="atribut" value="givenName">Given name<br>
+<input type="radio" name="atribut" value="postalAddress">Postal address<br>
+<input type="radio" name="atribut" value="mobile">Mobile<br>
+<input type="radio" name="atribut" value="telf">Telefon<br>
+<input type="radio" name="atribut" value="title">Title<br>
+<input type="radio" name="atribut" value="description">Description<br>
+Nou valor:<input type="text" name="valorModif"><br>
 <input type="submit"/>
 <input type="reset"/>
 </form>
@@ -44,8 +45,8 @@ Unitat organitzativa:
     if ($_POST['uid']){
         $uid=$_POST['uid'];
         $ou=$_POST['ou'];
-        $atribut = $_POST['atribut'][0];
-        $nou_contingut = $_POST[$atribut];
+        $atribut = $_POST['atribut'];
+        $valorModif = $_POST['valorModif'];
         #
         #Opcions de la connexió al servidor i base de dades LDAP
         $dn = 'uid='.$uid.',ou='.$ou.',dc=fjeclot,dc=net';
@@ -64,8 +65,8 @@ Unitat organitzativa:
         $ldap->bind();
         $entrada = $ldap->getEntry($dn);
         if ($entrada){
-            if(!empty($nou_contingut)) {
-                Attribute::setAttribute($entrada, $atribut, $nou_contingut);
+            if(!empty($valorModif)) {
+                Attribute::setAttribute($entrada, $atribut, $valorModif);
                 $ldap->update($dn, $entrada);
                 echo "<b>Atribut modificat correctament<b>";
             } else {

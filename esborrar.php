@@ -7,6 +7,7 @@ ELIMINANT USUARIS DE LA BASE DE DADES LDAP
 <body>
 <h2>Formulari d'esborrament d'usuari</h2>
 <form action="http://zend-luroin.fjeclot.net/projecte/esborrar.php" method="POST">
+<input type="hidden" name="_method" value="DELETE">
 Unitat organitzativa:
 <select name="ou" required>
   <option value="administradors">Administradors</option>
