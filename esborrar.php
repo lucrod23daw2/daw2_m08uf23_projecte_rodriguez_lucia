@@ -1,3 +1,25 @@
+<html>
+<head>
+<title>
+ELIMINANT USUARIS DE LA BASE DE DADES LDAP
+</title>
+</head>
+<body>
+<h2>Formulari d'esborrament d'usuari</h2>
+<form action="http://zend-luroin.fjeclot.net/projecte/esborrar.php" method="POST">
+Unitat organitzativa:
+<select name="ou" required>
+  <option value="administradors">Administradors</option>
+  <option value="desenvolupadors">Desenvolupadors</option>
+  <option value="usuaris">Usuaris</option>
+</select><br>
+Usuari: <input type="text" name="uid" required><br>
+<input type="submit"/>
+<input type="reset"/>
+</form>
+<a href="http://zend-luroin.fjeclot.net/projecte/menu.php">Torna al menú</a><br><br>
+</body>
+</html>
 <?php
 require 'vendor/autoload.php';
 use Laminas\Ldap\Attribute;
@@ -28,26 +50,9 @@ if ($_POST['uid']){
     $ldap->bind();
     try{
         $ldap->delete($dn);
-        echo "<b>Entrada esborrada</b><br>";
+        echo "<b style='color: red;'>Esborrat correctament</b><br>";
     } catch (Exception $e){
-        echo "<b>Aquesta entrada no existeix</b><br>";
+        echo "<b style='color: red;'>No es pot esborrar ja que no existeix</b><br>";
     }
 }
 ?>
-<html>
-<head>
-<title>
-ELIMINANT USUARIS DE LA BASE DE DADES LDAP
-</title>
-</head>
-<body>
-<h2>Formulari d'esborrament d'usuari</h2>
-<form action="http://zend-luroin.fjeclot.net/projecte/esborrar.php" method="POST">
-Unitat organitzativa: <input type="text" name="ou" required><br>
-Usuari: <input type="text" name="uid" required><br>
-<input type="submit"/>
-<input type="reset"/>
-</form>
-<a href="http://zend-luroin.fjeclot.net/projecte/menu.php">Torna al menú</a>
-</body>
-</html>

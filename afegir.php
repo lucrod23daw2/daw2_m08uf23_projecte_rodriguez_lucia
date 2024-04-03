@@ -1,3 +1,37 @@
+<html>
+<head>
+<title>
+AFEGINT USUARIS A LA BASE DE DADES LDAP
+</title>
+</head>
+<body>
+<h2>Formulari de creació d'usuaris</h2>
+<form action="http://zend-luroin.fjeclot.net/projecte/afegir.php" method="POST">
+UID: <input type="text" name="uid" required><br>
+Unitat organitzativa:
+<select name="ou" required>
+  <option value="administradors">Administradors</option>
+  <option value="desenvolupadors">Desenvolupadors</option>
+  <option value="usuaris">Usuaris</option>
+</select><br>
+UID Number: <input type="text" name="uidNumber" required><br>
+GID Number: <input type="text" name="gidNumber" required><br>
+Direcrori personal: <input type="text" name="dir" required><br>
+Shell: <input type="text" name="shell" required><br>
+CN: <input type="text" name="cn" required><br>
+SN: <input type="text" name="sn" required><br>
+Given name: <input type="text" name="givenName" required><br>
+Postal adress: <input type="text" name="postalAdress" required><br>
+Mobile: <input type="text" name="mobile"><br>
+Telefon: <input type="text" name="telf" required><br>
+Title: <input type="text" name="title" required><br>
+Description: <input type="text" name="description" required><br>
+<input type="submit"/>
+<input type="reset"/>
+</form>
+<a href="http://zend-luroin.fjeclot.net/projecte/menu.php">Torna al menú</a><br><br>
+</body>
+</html>
 <?php
     require 'vendor/autoload.php';
     use Laminas\Ldap\Attribute;
@@ -52,41 +86,7 @@
         Attribute::setAttribute($nova_entrada, 'description', $description);
         $dn = 'uid='.$uid.',ou='.$ou.',dc=fjeclot,dc=net';
         if ($ldap->add($dn, $nova_entrada)) {
-            echo "Usuari creat, <a href='http://zend-luroin.fjeclot.net/projecte/visualitzar.php?ou=$ou&usr=$uid'>Visualitzar dades d'usuari</a><br>";
+            echo "<b>Usuari creat, <a href='http://zend-luroin.fjeclot.net/projecte/visualitzar.php?ou=$ou&uid=$uid'>Visualitzar dades de $uid</a></b><br>";
         }
     }
 ?>
-<html>
-<head>
-<title>
-AFEGINT USUARIS A LA BASE DE DADES LDAP
-</title>
-</head>
-<body>
-<h2>Formulari de creació d'usuaris</h2>
-<form action="http://zend-luroin.fjeclot.net/projecte/afegir.php" method="POST">
-UID: <input type="text" name="uid" required><br>
-Unitat organitzativa:
-<select name="ou" required>
-  <option value="administradors">Administradors</option>
-  <option value="desenvolupadors">Desenvolupadors</option>
-  <option value="usuaris">Usuaris</option>
-</select><br>
-UID Number: <input type="text" name="uidNumber" required><br>
-GID Number: <input type="text" name="gidNumber" required><br>
-Direcrori personal: <input type="text" name="dir" required><br>
-Shell: <input type="text" name="shell" required><br>
-CN: <input type="text" name="cn" required><br>
-SN: <input type="text" name="sn" required><br>
-Given name: <input type="text" name="givenName" required><br>
-Postal adress: <input type="text" name="postalAdress" required><br>
-Mobile: <input type="text" name="mobile"><br>
-Telefon: <input type="text" name="telf" required><br>
-Title: <input type="text" name="title" required><br>
-Description: <input type="text" name="description" required><br>
-<input type="submit"/>
-<input type="reset"/>
-</form>
-<a href="http://zend-luroin.fjeclot.net/projecte/menu.php">Torna al menú</a>
-</body>
-</html>
