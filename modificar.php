@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['adm'])){
+    header("Location: error_acces.php");
+}
+?>
 <html>
 <head>
 <title>
@@ -12,19 +18,19 @@ Unitat organitzativa:
   <option value="administradors">Administradors</option>
   <option value="desenvolupadors">Desenvolupadors</option>
   <option value="usuaris">Usuaris</option>
-</select><br><br>
-UID: <input type="text" name="uid" required><br>
+</select><br>
+UID: <input type="text" name="uid" required><br><br>
 <label><b>Marca el camp que vols modificar i introdueix el nou valor:</b></label><br>
 <input type="radio" name="atribut" value="uidNumber">UID Number<br>
 <input type="radio" name="atribut" value="gidNumber">GID Number<br>
-<input type="radio" name="atribut" value="dir">Directori personal<br>
-<input type="radio" name="atribut" value="shell">Shell<br>
+<input type="radio" name="atribut" value="homeDirectory">Directori personal<br>
+<input type="radio" name="atribut" value="loginShell">Shell<br>
 <input type="radio" name="atribut" value="cn">CN<br>
 <input type="radio" name="atribut" value="sn">SN<br>
 <input type="radio" name="atribut" value="givenName">Given name<br>
 <input type="radio" name="atribut" value="postalAddress">Postal address<br>
 <input type="radio" name="atribut" value="mobile">Mobile<br>
-<input type="radio" name="atribut" value="telf">Telefon<br>
+<input type="radio" name="atribut" value="telephoneNumber">Telefon<br>
 <input type="radio" name="atribut" value="title">Title<br>
 <input type="radio" name="atribut" value="description">Description<br>
 Nou valor:<input type="text" name="valorModif"><br>

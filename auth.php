@@ -1,6 +1,7 @@
 <?php
     require 'vendor/autoload.php';
 	use Laminas\Ldap\Ldap;
+	session_start();
 
 	ini_set('display_errors', 0);
 	if ($_POST['cts'] && $_POST['adm']){
@@ -17,13 +18,14 @@
 	   $ctsnya=$_POST['cts'];
 	   try{
 	       $ldap->bind($dn,$ctsnya);
+	       $_SESSION['adm'] = $_POST['adm'];
 	       header("location: menu.php");
 	   } catch (Exception $e){
-	       echo "<b>Contrasenya incorrecta</b><br><br>";	       
+	       header("location: error_acces.php");
 	   }
 	}
 ?>
-<html>
+<!--<html>
 	<head>
 		<title>
 			AUTENTICACIÓ AMB LDAP 
@@ -32,4 +34,4 @@
 	<body>
 		<a href="http://zend-luroin.fjeclot.net/projecte/index.php">Torna a la pàgina inicial</a>
 	</body>
-</html>
+</html>-->

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['adm'])){
+    header("Location: error_acces.php");
+}
+?>
 <html>
 	<head>
 		<title>

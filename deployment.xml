@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <package xmlns="http://www.zend.com/server/deployment-descriptor/1.0" version="1.0">
     <name>m08projecte</name>
-    <summary>Mejoras v1</summary>
+    <summary>Implementació ús correcte de sessions</summary>
     <version>
-        <release>1.6.1</release>
+        <release>1.7.1</release>
     </version>
     </package>
