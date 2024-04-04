@@ -12,7 +12,7 @@ AFEGINT USUARIS A LA BASE DE DADES LDAP
 </head>
 <body>
 <h2>Formulari de creació d'usuaris</h2>
-<form action="http://zend-luroin.fjeclot.net/projecte/afegir.php" method="POST">
+<form action="https://zends-dacomo/m08uf23/afegir.php" method="POST">
 UID: <input type="text" name="uid" required><br>
 Unitat organitzativa:
 <select name="ou" required>
@@ -35,7 +35,7 @@ Description: <input type="text" name="description" required><br>
 <input type="submit"/>
 <input type="reset"/>
 </form>
-<a href="http://zend-luroin.fjeclot.net/projecte/menu.php">Torna al menú</a><br><br>
+<a href="https://zends-dacomo/m08uf23/menu.php">Torna al menú</a><br><br>
 </body>
 </html>
 <?php
@@ -92,7 +92,7 @@ Description: <input type="text" name="description" required><br>
         Attribute::setAttribute($nova_entrada, 'description', $description);
         $dn = 'uid='.$uid.',ou='.$ou.',dc=fjeclot,dc=net';
         if ($ldap->add($dn, $nova_entrada)) {
-            echo "<b>Usuari creat, <a href='http://zend-luroin.fjeclot.net/projecte/visualitzar.php?ou=$ou&uid=$uid'>Visualitzar dades de $uid</a></b><br>";
+            echo "<b>Usuari creat, <a href='https://zends-dacomo/m08uf23/visualitzar.php?ou=$ou&uid=$uid'>Visualitzar dades de $uid</a></b><br>";
         }
     }
 ?>

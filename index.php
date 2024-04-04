@@ -10,6 +10,6 @@
 		<h3> Autor: lucrod23daw2</h3>
 		<h3> Correu: 441091.clot@fje.edu</h3>
 		<h3> Github: https://github.com/lucrod23daw2/daw2_m08uf23_projecte_rodriguez_lucia</h3>
-		<a href="http://zend-luroin.fjeclot.net/projecte/login.php">Inicia sessió</a>
+		<a href="https://zends-dacomo/m08uf23/login.php">Inicia sessió</a>
 	</body>
 </html>

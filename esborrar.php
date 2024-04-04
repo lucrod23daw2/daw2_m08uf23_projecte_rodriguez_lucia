@@ -12,7 +12,7 @@ ELIMINANT USUARIS DE LA BASE DE DADES LDAP
 </head>
 <body>
 <h2>Formulari d'esborrament d'usuari</h2>
-<form action="http://zend-luroin.fjeclot.net/projecte/esborrar.php" method="POST">
+<form action="https://zends-dacomo/m08uf23/esborrar.php" method="POST">
 <input type="hidden" name="metode" value="DELETE" />
 Unitat organitzativa:
 <select name="ou" required>
@@ -24,7 +24,7 @@ Usuari: <input type="text" name="uid" required><br>
 <input type="submit"/>
 <input type="reset"/>
 </form>
-<a href="http://zend-luroin.fjeclot.net/projecte/menu.php">Torna al menú</a><br><br>
+<a href="https://zends-dacomo/m08uf23/menu.php">Torna al menú</a><br><br>
 </body>
 </html>
 <?php

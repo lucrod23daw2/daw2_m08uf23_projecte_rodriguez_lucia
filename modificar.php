@@ -12,7 +12,7 @@ MODIFICANT DADES D'USUARIS A LA BASE DE DADES LDAP
 </head>
 <body>
 <h2>Formulari de modificació d'usuaris</h2>
-<form action="http://zend-luroin.fjeclot.net/projecte/modificar.php" method="POST">
+<form action="https://zends-dacomo/m08uf23/modificar.php" method="POST">
 <input type="hidden" name="metode" value="PUT" />
 Unitat organitzativa:
 <select name="ou" required>
@@ -38,7 +38,7 @@ Nou valor:<input type="text" name="valorModif" required><br>
 <input type="submit"/>
 <input type="reset"/>
 </form>
-<a href="http://zend-luroin.fjeclot.net/projecte/menu.php">Torna al menú</a><br><br>
+<a href="https://zends-dacomo/m08uf23/menu.php">Torna al menú</a><br><br>
 </body>
 </html>
 <?php
