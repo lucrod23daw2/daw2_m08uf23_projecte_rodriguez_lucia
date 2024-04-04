@@ -13,6 +13,7 @@ MODIFICANT DADES D'USUARIS A LA BASE DE DADES LDAP
 <body>
 <h2>Formulari de modificació d'usuaris</h2>
 <form action="http://zend-luroin.fjeclot.net/projecte/modificar.php" method="POST">
+<input type="hidden" name="metode" value="PUT" />
 Unitat organitzativa:
 <select name="ou" required>
   <option value="administradors">Administradors</option>
@@ -48,36 +49,38 @@ Nou valor:<input type="text" name="valorModif" required><br>
     ini_set('display_errors', 0);
     #Dades de la nova entrada
     #
-    if ($_POST['uid']){
-        $uid=$_POST['uid'];
-        $ou=$_POST['ou'];
-        $atribut = $_POST['atribut'];
-        $valorModif = $_POST['valorModif'];
-        #
-        #Opcions de la connexió al servidor i base de dades LDAP
-        $dn = 'uid='.$uid.',ou='.$ou.',dc=fjeclot,dc=net';
-        $opcions = [
-            'host' => 'zend-luroin.fjeclot.net',
-            'username' => 'cn=admin,dc=fjeclot,dc=net',
-            'password' => 'fjeclot',
-            'bindRequiresDn' => true,
-            'accountDomainName' => 'fjeclot.net',
-            'baseDn' => 'dc=fjeclot,dc=net',
-        ];
-        #
-        # Modificant l'entrada
-        #
-        $ldap = new Ldap($opcions);
-        $ldap->bind();
-        $entrada = $ldap->getEntry($dn);
-        if ($entrada){
-            if(!empty($valorModif)) {
-                Attribute::setAttribute($entrada, $atribut, $valorModif);
-                $ldap->update($dn, $entrada);
-                echo "<b>Atribut modificat correctament<b>";
+    if( $_POST["metode"] == "PUT" ){
+        if ($_POST['uid']){
+            $uid=$_POST['uid'];
+            $ou=$_POST['ou'];
+            $atribut = $_POST['atribut'];
+            $valorModif = $_POST['valorModif'];
+            #
+            #Opcions de la connexió al servidor i base de dades LDAP
+            $dn = 'uid='.$uid.',ou='.$ou.',dc=fjeclot,dc=net';
+            $opcions = [
+                'host' => 'zend-luroin.fjeclot.net',
+                'username' => 'cn=admin,dc=fjeclot,dc=net',
+                'password' => 'fjeclot',
+                'bindRequiresDn' => true,
+                'accountDomainName' => 'fjeclot.net',
+                'baseDn' => 'dc=fjeclot,dc=net',
+            ];
+            #
+            # Modificant l'entrada
+            #
+            $ldap = new Ldap($opcions);
+            $ldap->bind();
+            $entrada = $ldap->getEntry($dn);
+            if ($entrada){
+                if(!empty($valorModif)) {
+                    Attribute::setAttribute($entrada, $atribut, $valorModif);
+                    $ldap->update($dn, $entrada);
+                    echo "<b>Atribut modificat correctament<b>";
+                }
+            }else{
+                echo "<b>Aquesta entrada no existeix</b><br><br>";	
             }
-        }else{
-            echo "<b>Aquesta entrada no existeix</b><br><br>";	
         }
     }
 ?>

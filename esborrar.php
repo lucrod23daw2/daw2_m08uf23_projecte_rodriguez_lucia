@@ -13,7 +13,7 @@ ELIMINANT USUARIS DE LA BASE DE DADES LDAP
 <body>
 <h2>Formulari d'esborrament d'usuari</h2>
 <form action="http://zend-luroin.fjeclot.net/projecte/esborrar.php" method="POST">
-<input type="hidden" name="_method" value="DELETE">
+<input type="hidden" name="metode" value="DELETE" />
 Unitat organitzativa:
 <select name="ou" required>
   <option value="administradors">Administradors</option>
@@ -36,30 +36,32 @@ ini_set('display_errors', 0);
 #
 # Entrada a esborrar: usuari 3 creat amb el projecte zendldap2
 #
-if ($_POST['uid']){
-    $uid=$_POST['uid'];
-    $ou=$_POST['ou'];
-    $dn = 'uid='.$uid.',ou='.$ou.',dc=fjeclot,dc=net';
-    #
-    #Opcions de la connexió al servidor i base de dades LDAP
-    $opcions = [
-        'host' => 'zend-luroin.fjeclot.net',
-        'username' => 'cn=admin,dc=fjeclot,dc=net',
-        'password' => 'fjeclot',
-        'bindRequiresDn' => true,
-        'accountDomainName' => 'fjeclot.net',
-        'baseDn' => 'dc=fjeclot,dc=net',
-    ];
-    #
-    # Esborrant l'entrada
-    #
-    $ldap = new Ldap($opcions);
-    $ldap->bind();
-    try{
-        $ldap->delete($dn);
-        echo "<b style='color: red;'>Esborrat correctament</b><br>";
-    } catch (Exception $e){
-        echo "<b style='color: red;'>No es pot esborrar ja que no existeix</b><br>";
+if( $_POST["metode"] == "DELETE" ){
+    if ($_POST['uid']){
+        $uid=$_POST['uid'];
+        $ou=$_POST['ou'];
+        $dn = 'uid='.$uid.',ou='.$ou.',dc=fjeclot,dc=net';
+        #
+        #Opcions de la connexió al servidor i base de dades LDAP
+        $opcions = [
+            'host' => 'zend-luroin.fjeclot.net',
+            'username' => 'cn=admin,dc=fjeclot,dc=net',
+            'password' => 'fjeclot',
+            'bindRequiresDn' => true,
+            'accountDomainName' => 'fjeclot.net',
+            'baseDn' => 'dc=fjeclot,dc=net',
+        ];
+        #
+        # Esborrant l'entrada
+        #
+        $ldap = new Ldap($opcions);
+        $ldap->bind();
+        try{
+            $ldap->delete($dn);
+            echo "<b style='color: red;'>Esborrat correctament</b><br>";
+        } catch (Exception $e){
+            echo "<b style='color: red;'>No es pot esborrar ja que no existeix</b><br>";
+        }
     }
 }
 ?>
