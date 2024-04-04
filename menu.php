@@ -15,6 +15,7 @@ if (!isset($_SESSION['adm'])){
 		<a href="https://zends-dacomo/m08uf23/afegir.php">Afegir usuari</a><br>
 		<a href="https://zends-dacomo/m08uf23/modificar.php">Modificar usuari</a><br>
 		<a href="https://zends-dacomo/m08uf23/esborrar.php">Esborrar usuari</a><br>
+		<a href="https://zends-dacomo/m08uf23/segurEsborrar.php">Esborrar usuari sysadmin</a><br>
 		<a href="https://zends-dacomo/m08uf23/visualitzar.php">Visualitzar dades d'usuari</a><br><br>
 		<a href="https://zends-dacomo/m08uf23/logout.php">Tanca la sessió</a>
 	</body>
