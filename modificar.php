@@ -33,7 +33,7 @@ UID: <input type="text" name="uid" required><br><br>
 <input type="radio" name="atribut" value="telephoneNumber">Telefon<br>
 <input type="radio" name="atribut" value="title">Title<br>
 <input type="radio" name="atribut" value="description">Description<br>
-Nou valor:<input type="text" name="valorModif"><br>
+Nou valor:<input type="text" name="valorModif" required><br>
 <input type="submit"/>
 <input type="reset"/>
 </form>
@@ -75,8 +75,6 @@ Nou valor:<input type="text" name="valorModif"><br>
                 Attribute::setAttribute($entrada, $atribut, $valorModif);
                 $ldap->update($dn, $entrada);
                 echo "<b>Atribut modificat correctament<b>";
-            } else {
-                echo "<b>Introdueix un valor per al camp<b>";
             }
         }else{
             echo "<b>Aquesta entrada no existeix</b><br><br>";	

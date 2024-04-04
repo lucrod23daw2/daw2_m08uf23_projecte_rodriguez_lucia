@@ -15,7 +15,7 @@ if (!isset($_SESSION['adm'])){
 		<a href="http://zend-luroin.fjeclot.net/projecte/afegir.php">Afegir usuari</a><br>
 		<a href="http://zend-luroin.fjeclot.net/projecte/modificar.php">Modificar usuari</a><br>
 		<a href="http://zend-luroin.fjeclot.net/projecte/esborrar.php">Esborrar usuari</a><br>
-		<a href="http://zend-luroin.fjeclot.net/projecte/visualitzar.php">Visualitzar dades d'usuari</a><br>
+		<a href="http://zend-luroin.fjeclot.net/projecte/visualitzar.php">Visualitzar dades d'usuari</a><br><br>
 		<a href="http://zend-luroin.fjeclot.net/projecte/index.php">Torna a la pàgina inicial</a>
 	</body>
 </html>

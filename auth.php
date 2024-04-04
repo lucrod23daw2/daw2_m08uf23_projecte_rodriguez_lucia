@@ -25,13 +25,3 @@
 	   }
 	}
 ?>
-<!--<html>
-	<head>
-		<title>
-			AUTENTICACIÓ AMB LDAP 
-		</title>
-	</head>
-	<body>
-		<a href="http://zend-luroin.fjeclot.net/projecte/index.php">Torna a la pàgina inicial</a>
-	</body>
-</html>-->

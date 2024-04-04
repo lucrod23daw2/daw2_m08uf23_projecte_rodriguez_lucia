@@ -50,6 +50,8 @@ if ($_GET['uid'] && $_GET['ou']){
         foreach ($usuari as $atribut => $dada) {
             if ($atribut != "dn") echo $atribut.": ".$dada[0].'<br>';
         }
+    }else{
+        echo "<h3>Entrada no trobada</h3>";
     }
 }
 ?>
